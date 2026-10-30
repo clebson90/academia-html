@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia Iron Fitness</title>
+    
+    <style>
+        :root {
+            --cor-principal: #121212;
+            --cor-secundaria: #e63946;
+            --cor-fundo: #f4f6f8;
+            --cor-branco: #ffffff;
+            --cor-cinza-claro: #f1f3f5;
+            --cor-cinza-borda: #dee2e6;
+            --sombra-padrao: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --borda-raio: 10px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--cor-fundo);
+            color: var(--cor-principal);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1f1f1f 0%, #121212 100%);
+            color: var(--cor-branco);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--cor-secundaria);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        header p {
+            margin: 0 0 25px 0;
+            color: #adb5bd;
+            font-size: 1.1rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--cor-branco);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 6px 14px;
+            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: var(--cor-secundaria);
+            color: var(--cor-branco);
+        }
+
+        /* Foco visível acessível */
+        button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible {
+            outline: 3px solid var(--cor-secundaria);
+            outline-offset: 3px;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: var(--cor-branco);
+            padding: 35px;
+            margin-bottom: 30px;
+            border: 1px solid var(--cor-cinza-borda);
+            border-radius: var(--borda-raio);
+            box-shadow: var(--sombra-padrao);
+        }
+
+        section h2 {
+            margin-top: 0;
+            color: var(--cor-principal);
+            border-bottom: 2px solid var(--cor-cinza-claro);
+            padding-bottom: 12px;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        section h3 {
+            font-size: 1.25rem;
+            margin-top: 30px;
+            color: #343a40;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--cor-cinza-borda);
+        }
+
+        th, td {
+            padding: 14px 18px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--cor-cinza-claro);
+            font-weight: 600;
+            color: #495057;
+            border-bottom: 1px solid var(--cor-cinza-borda);
+        }
+
+        td {
+            border-bottom: 1px solid var(--cor-cinza-claro);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        fieldset {
+            border: 1px solid var(--cor-cinza-borda);
+            border-radius: var(--borda-raio);
+            padding: 25px;
+            margin: 0;
+            background-color: #fafbfc;
+        }
+
+        legend {
+            font-weight: bold;
+            color: var(--cor-secundaria);
+            padding: 0 10px;
+            font-size: 1.1rem;
+            background-color: var(--cor-branco);
+            border: 1px solid var(--cor-cinza-borda);
+            border-radius: 6px;
+        }
+
+        form p {
+            margin-bottom: 20px;
+        }
+
+        form label {
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-block;
+            margin-bottom: 8px;
+            color: #495057;
+        }
+
+        form input, form select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 1rem;
+            background-color: var(--cor-branco);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        form input:focus, form select:focus {
+            border-color: var(--cor-secundaria);
+            box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.15);
+            outline: none;
+        }
+
+        .btn-acao {
+            background-color: var(--cor-secundaria);
+            color: var(--cor-branco);
+            padding: 14px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.05rem;
+            font-weight: bold;
+            width: 100%;
+            transition: background-color 0.2s, transform 0.1s;
+            box-shadow: 0 4px 6px rgba(230, 57, 70, 0.2);
+        }
+
+        .btn-acao:hover {
+            background-color: #c5303c;
+        }
+
+        .btn-acao:active {
+            transform: scale(0.98);
+        }
+
+        footer {
+            background-color: var(--cor-principal);
+            color: var(--cor-branco);
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+            font-size: 0.95rem;
+            border-top: 4px solid var(--cor-secundaria);
+        }
+
+        .conteudo-centralizado {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .conteudo-centralizado img, 
+        .conteudo-centralizado video {
+            border-radius: var(--borda-raio);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Academia Iron Fitness</h1>
+        <p>O lugar certo para você treinar, ganhar saúde e alcançar seus objetivos!</p>
+        
+        <nav aria-label="Navegação Principal">
+            <a href="#modalidades">Modalidades</a>
+            <a href="#espaco">Nosso Espaço</a>
+            <a href="#matricula">Pré-Matrícula</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section id="modalidades">
+            <h2>Nossas Modalidades</h2>
+            <ul>
+                <li>Musculação Completa</li>
+                <li>Aulas de Muay Thai</li>
+                <li>Treino Funcional e Cross</li>
+            </ul>
+
+            <div class="conteudo-centralizado">
+                <!-- Imagem linkada diretamente da internet para carregar sem precisar de arquivos locais -->
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600&auto=format&fit=crop" 
+                     alt="Pessoas treinando musculação na academia Iron Fitness" 
+                     width="400">
+            </div>
+
+            <h3>Horário de Funcionamento</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dia</th>
+                        <th>Horário</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Segunda a Sexta</td>
+                        <td>06:00 às 22:00</td>
+                    </tr>
+                    <tr>
+                        <td>Sábado</td>
+                        <td>08:00 às 14:00</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p style="margin-top: 25px;">
+                Veja dicas de treino no site do 
+                <a href="https://www.hipertrofia.org" target="_blank" rel="noopener noreferrer" style="color: var(--cor-secundaria); font-weight: 600; text-decoration: none;">Hipertrofia</a>.
+            </p>
+        </section>
+
+        <section id="espaco">
+            <h2>Conheça o Nosso Espaço</h2>
+            
+            <div class="conteudo-centralizado">
+                <!-- Vídeo linkado diretamente da web via link direto da Mixkit -->
+                <video controls 
+                       poster="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=600&auto=format&fit=crop" 
+                       preload="none" 
+                       width="400">
+                    <source src="https://assets.mixkit.co/videos/preview/mixkit-man-runs-on-a-treadmill-41481-large.mp4" type="video/mp4">
+                    O seu navegador não consegue rodar este vídeo. 
+                </video>
+            </div>
+        </section>
+
+        <section id="matricula">
+            <h2>Faça sua Pré-Matrícula</h2>
+            <form action="#" method="POST">
+                <fieldset>
+                    <legend>Preencha seus Dados</legend>
+
+                    <p>
+                        <label for="nome">Nome Completo:</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </p>
+
+                    <p>
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="email" required>
+                    </p>
+
+                    <p>
+                        <label for="whatsapp">WhatsApp (só números):</label>
+                        <input type="tel" id="whatsapp" name="whatsapp" pattern="[0-9]{11}" placeholder="83999999999" required>
+                    </p>
+
+                    <p>
+                        <label for="plano">Escolha o Plano:</label>
+                        <select id="plano" name="plano" required>
+                            <option value="">Selecione um plano...</option>
+                            <option value="mensal">Plano Mensal</option>
+                            <option value="anual">Plano Anual VIP</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label for="data-inicio">Data de Início:</label>
+                        <input type="date" id="data-inicio" name="data-inicio" required>
+                    </p>
+                </fieldset>
+
+                <br>
+                <button type="submit" class="btn-acao">Enviar Matrícula</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Academia Iron Fitness. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Script de lógica em JavaScript estruturado (Aulas 09, 13, 14) -->
+    <script>
+        const planosAcademia = [
+            { nome: "Musculação Básica", preco: 90, categoria: "Musculação" },
+            { nome: "Muay Thai Intensivo", preco: 120, categoria: "Luta" },
+            { nome: "CrossFit Total", preco: 150, categoria: "Funcional" },
+            { nome: "Plano Família", preco: 250, categoria: "Promocional" },
+            { nome: "VIP Gold Anual", preco: 1000, categoria: "Completo" }
+        ];
+
+        let entradaUsuario = prompt("Informe um valor limite de orçamento para filtrar os planos:");
+        let limiteOrcamento = Number(entradaUsuario);
+
+        if (entradaUsuario === null || entradaUsuario.trim() === "" || isNaN(limiteOrcamento)) {
+            console.warn("Entrada inválida ou cancelada. Usando valor padrão de R$ 150.");
+            limiteOrcamento = 150;
+        }
+
+        console.log("=== RELATÓRIO DE PLANOS DA IRON FITNESS ===");
+        console.log(`Orçamento limite informado: R$ ${limiteOrcamento}`);
+
+        console.log("\n--- Classificação dos Planos ---");
+        for (let plano of planosAcademia) {
+            let faixaPreco = "";
+            if (plano.preco <= 100) {
+                faixaPreco = "Econômico";
+            } else if (plano.preco <= 200) {
+                faixaPreco = "Intermediário";
+            } else {
+                faixaPreco = "Premium";
+            }
+            console.log(`Plano: ${plano.nome} | Preço: R$ ${plano.preco} | Faixa: ${faixaPreco}`);
+        }
+
+        console.log("\n--- Mensagens por Categoria (Switch) ---");
+        for (let plano of planosAcademia) {
+            let mensagem = "";
+            switch (plano.categoria) {
+                case "Musculação":
+                    mensagem = "Foco em hipertrofia e resistência.";
+                    break;
+                case "Luta":
+                    mensagem = "Alta intensidade e defesa pessoal.";
+                    break;
+                case "Funcional":
+                    mensagem = "Condicionamento físico global.";
+                    break;
+                case "Promocional":
+                    mensagem = "Ótimo custo-benefício para grupos.";
+                    break;
+                default:
+                    mensagem = "Acesso total a todas as dependências.";
+                    break;
+            }
+            console.log(`[${plano.categoria}] ${plano.nome}: ${mensagem}`);
+        }
+
+        let somaPrecos = 0;
+        let planosAcessiveis = 0;
+        for (let i =0; i < planosAcademia.length; i++) {
+            somaPrecos += planosAcademia[i].preco;
+            if (planosAcademia[i].preco <= limiteOrcamento) {
+                planosAcessiveis++;
+            }
+        }
+        let mediaPrecos = somaPrecos / planosAcademia.length;
+
+        console.log("\n--- Resumo Estatístico ---");
+        console.log(`Média de preço dos planos: R$ ${mediaPrecos.toFixed(2)}`);
+        console.log(`Quantidade de planos dentro do seu orçamento (R$ ${limiteOrcamento}): ${planosAcessiveis}`);
+
+        console.table(planosAcademia);
+
+        let contadorSimulacao = 1;
+        while (contadorSimulacao <= 2) {
+            console.log(`Simulação de atendimento número ${contadorSimulacao} realizada com sucesso.`);
+            contadorSimulacao++;
+        }
+    </script>
+</body>
+</html>
